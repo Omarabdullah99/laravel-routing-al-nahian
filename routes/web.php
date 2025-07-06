@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,6 +32,15 @@ Route::get("/users", function(){
 //     return 'you are now 4';
 // });
 
-Route::get("/user/{id}", function($id){
-    return 'you are now'. $id;
+// Route::get("/user/{id}", function($id){
+//     return 'you are now'. $id;
+// });
+
+Route::get('/user/{id}', function($id){
+    $user= DB::table('Users')->where('id',$id)->first();
+     if ($user) {
+        return $user;
+    } else {
+        return "User not found.";
+    }
 });
