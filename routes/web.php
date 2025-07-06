@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -44,3 +45,7 @@ Route::get('/user/{id}', function($id){
         return "User not found.";
     }
 });
+
+
+Route::get('/profiles', [ProfileController::class, 'index'])->name('profiles.index');
+Route::get('/profiles/{id}', [ProfileController::class, 'show'])->name('profiles.show');
