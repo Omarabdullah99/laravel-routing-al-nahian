@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -49,3 +50,5 @@ Route::get('/user/{id}', function($id){
 
 Route::get('/profiles', [ProfileController::class, 'index'])->name('profiles.index');
 Route::get('/profiles/{id}', [ProfileController::class, 'show'])->name('profiles.show');
+Route::get('/allusers', [UserController::class, 'allUsers'])->name('alluser.show');
+Route::get('/user/{id}', [UserController::class, 'user'])->name('single.user');
