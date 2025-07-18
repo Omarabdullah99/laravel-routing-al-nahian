@@ -54,14 +54,6 @@ Route::get('/allusers', [UserController::class, 'allUsers'])->name('alluser.show
 Route::get('/user/{id}', [UserController::class, 'user'])->name('single.user');
 
 Route::get('/', function () {
-
-    Product::create([
-        'name' => 'Test Product 2',
-        'description' => 'Product 2 is very good',
-        'price' => '20000',
-        'category_name' => 'product'
-
-    ]);
-
-    dd('product added');
+   Product::find(3)->update(['name'=>'product 3']);
+   dd('product update');
 });
