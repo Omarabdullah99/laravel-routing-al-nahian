@@ -4,6 +4,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Models\Product;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -52,4 +53,15 @@ Route::get('/profiles/{id}', [ProfileController::class, 'show'])->name('profiles
 Route::get('/allusers', [UserController::class, 'allUsers'])->name('alluser.show');
 Route::get('/user/{id}', [UserController::class, 'user'])->name('single.user');
 
-Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/', function(){
+    // return Product::all();
+    // return Product::all()->first();
+    // return Product::all()->first()->name;
+    // return Product::firstOrFail();
+    //  return Product::findOrFail(2);
+    //  return Product::where('category_name', 'phone')->get();
+    //  return Product::where('price', '>' ,'15000')->get();
+    return Product::select(['name', 'price','category_name' ])->get();
+    // return Product::count();
+
+});
