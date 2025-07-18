@@ -54,6 +54,6 @@ Route::get('/allusers', [UserController::class, 'allUsers'])->name('alluser.show
 Route::get('/user/{id}', [UserController::class, 'user'])->name('single.user');
 
 Route::get('/', function () {
-   Product::find(3)->update(['name'=>'product 3']);
+   Product::find(5)->deleteOrFail();
    dd('product update');
 });
