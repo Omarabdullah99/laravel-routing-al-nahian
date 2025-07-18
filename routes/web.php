@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/contact',[ContactController::class,'show']);
+Route::get('/contact', [ContactController::class, 'show']);
 
-Route::get("/users", function(){
+Route::get("/users", function () {
     return view('users');
 });
 
@@ -38,9 +38,9 @@ Route::get("/users", function(){
 //     return 'you are now'. $id;
 // });
 
-Route::get('/user/{id}', function($id){
-    $user= DB::table('Users')->where('id',$id)->first();
-     if ($user) {
+Route::get('/user/{id}', function ($id) {
+    $user = DB::table('Users')->where('id', $id)->first();
+    if ($user) {
         return $user;
     } else {
         return "User not found.";
@@ -53,15 +53,15 @@ Route::get('/profiles/{id}', [ProfileController::class, 'show'])->name('profiles
 Route::get('/allusers', [UserController::class, 'allUsers'])->name('alluser.show');
 Route::get('/user/{id}', [UserController::class, 'user'])->name('single.user');
 
-Route::get('/', function(){
-    // return Product::all();
-    // return Product::all()->first();
-    // return Product::all()->first()->name;
-    // return Product::firstOrFail();
-    //  return Product::findOrFail(2);
-    //  return Product::where('category_name', 'phone')->get();
-    //  return Product::where('price', '>' ,'15000')->get();
-    return Product::select(['name', 'price','category_name' ])->get();
-    // return Product::count();
+Route::get('/', function () {
 
+    Product::create([
+        'name' => 'Test Product 2',
+        'description' => 'Product 2 is very good',
+        'price' => '20000',
+        'category_name' => 'product'
+
+    ]);
+
+    dd('product added');
 });
