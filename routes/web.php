@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Models\Product;
+use App\Models\Profile;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -54,6 +56,7 @@ Route::get('/allusers', [UserController::class, 'allUsers'])->name('alluser.show
 Route::get('/user/{id}', [UserController::class, 'user'])->name('single.user');
 
 Route::get('/', function () {
-   Product::find(5)->deleteOrFail();
-   dd('product update');
+    //   return User::findOrFail(1)->profile;
+    // return User::with('profile')->findOrFail(1);
+    return Profile::findOrFail(1)->user;
 });

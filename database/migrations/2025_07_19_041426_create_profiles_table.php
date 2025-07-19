@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->text('bio')->nullable();
+            $table->foreignId('user_id');
+            $table->string('userName')->unique;
+            $table->string('phone');
+            $table->string('address');
             $table->timestamps();
         });
     }
