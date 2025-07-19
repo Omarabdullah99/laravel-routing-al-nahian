@@ -58,3 +58,9 @@ Route::get('/allusers', [UserController::class, 'allUsers'])->name('alluser.show
 Route::get('/user/{id}', [UserController::class, 'user'])->name('single.user');
 
 Route::get('/users/{user:name}', [UserController::class, 'index']);
+
+Route::get('/', function () {
+   return User::findOrFail(1)->posts;
+// return User::with('posts')->findOrFail(1);
+});
+
