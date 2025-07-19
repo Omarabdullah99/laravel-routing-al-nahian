@@ -57,9 +57,6 @@ Route::get('/profiles/{id}', [ProfileController::class, 'show'])->name('profiles
 Route::get('/allusers', [UserController::class, 'allUsers'])->name('alluser.show');
 Route::get('/user/{id}', [UserController::class, 'user'])->name('single.user');
 
-Route::get('/', function () {
-    //   return User::findOrFail(1)->profile;
-    // return User::with('profile')->findOrFail(1);
-    // return Post::findOrFail(1)->comments;
-    return Post::findOrFail(1)->user;
+Route::get('/users/{id}', function($id){
+    return User::findOrFail($id);
 });
