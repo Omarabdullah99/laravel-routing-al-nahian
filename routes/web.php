@@ -4,6 +4,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Models\Comment;
+use App\Models\Post;
 use App\Models\Product;
 use App\Models\Profile;
 use App\Models\User;
@@ -58,5 +60,6 @@ Route::get('/user/{id}', [UserController::class, 'user'])->name('single.user');
 Route::get('/', function () {
     //   return User::findOrFail(1)->profile;
     // return User::with('profile')->findOrFail(1);
-    return Profile::findOrFail(1)->user;
+    // return Post::findOrFail(1)->comments;
+    return Post::findOrFail(1)->user;
 });

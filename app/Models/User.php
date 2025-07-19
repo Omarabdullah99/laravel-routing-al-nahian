@@ -12,4 +12,8 @@ class User extends Model
         return $this->hasOne(Profile::class);
     }
 
+    public function posts(){
+        return $this->hasMany(Post::class);
+    }
+
 }
