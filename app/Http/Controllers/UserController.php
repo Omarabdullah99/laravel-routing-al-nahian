@@ -16,4 +16,8 @@ class UserController extends Controller
         $singleUser= User::findOrFail($id);
         return view('user.show', compact('singleUser'));
     }
+
+    public function index(User $user){
+        return $user;
+    }
 }
