@@ -57,4 +57,4 @@ Route::get('/profiles/{id}', [ProfileController::class, 'show'])->name('profiles
 Route::get('/allusers', [UserController::class, 'allUsers'])->name('alluser.show');
 Route::get('/user/{id}', [UserController::class, 'user'])->name('single.user');
 
-Route::get('/users/{user}', [UserController::class, 'index']);
+Route::get('/users/{user:name}', [UserController::class, 'index']);
